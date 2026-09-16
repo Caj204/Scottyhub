@@ -20,66 +20,66 @@ import { createServer as createViteServer } from "vite";
 import { Server as SocketIOServer } from "socket.io";
 
 // @ts-ignore — CommonJS module from the ScottyHub backend (no type declarations)
-import dbModule from "./server/db.js";
+import dbModule from "./server/db.cjs";
 // @ts-ignore
-import authMiddleware from "./server/middleware/auth.js";
+import authMiddleware from "./server/middleware/auth.cjs";
 // @ts-ignore
-import chatSocket from "./server/socket/chat.js";
+import chatSocket from "./server/socket/chat.cjs";
 
 const { initDB, db } = dbModule as any;
 const { protect } = authMiddleware as any;
 const { attachSocket } = chatSocket as any;
 
 // @ts-ignore
-import authRoutes from "./server/routes/auth.js";
+import authRoutes from "./server/routes/auth.cjs";
 // @ts-ignore
-import userRoutes from "./server/routes/users.js";
+import userRoutes from "./server/routes/users.cjs";
 // @ts-ignore
-import postRoutes from "./server/routes/posts.js";
+import postRoutes from "./server/routes/posts.cjs";
 // @ts-ignore
-import aiRoutes from "./server/routes/ai.js";
+import aiRoutes from "./server/routes/ai.cjs";
 // @ts-ignore
-import moviesRoutes from "./server/routes/movies.js";
+import moviesRoutes from "./server/routes/movies.cjs";
 // @ts-ignore
-import sportsRoutes from "./server/routes/sports.js";
+import sportsRoutes from "./server/routes/sports.cjs";
 // @ts-ignore
-import downloadRoutes from "./server/routes/download.js";
+import downloadRoutes from "./server/routes/download.cjs";
 // @ts-ignore
-import adminRoutes from "./server/routes/admin.js";
+import adminRoutes from "./server/routes/admin.cjs";
 // @ts-ignore
-import notifRoutes from "./server/routes/notifications.js";
+import notifRoutes from "./server/routes/notifications.cjs";
 // @ts-ignore
-import followRoutes from "./server/routes/follows.js";
+import followRoutes from "./server/routes/follows.cjs";
 // @ts-ignore
-import searchRoutes from "./server/routes/search.js";
+import searchRoutes from "./server/routes/search.cjs";
 // @ts-ignore
-import uploadRoutes from "./server/routes/upload.js";
+import uploadRoutes from "./server/routes/upload.cjs";
 // @ts-ignore
-import boostRoutes from "./server/routes/boost.js";
+import boostRoutes from "./server/routes/boost.cjs";
 // @ts-ignore
-import dashboardRoutes from "./server/routes/dashboard.js";
+import dashboardRoutes from "./server/routes/dashboard.cjs";
 // @ts-ignore
-import earnRoutes from "./server/routes/earn.js";
+import earnRoutes from "./server/routes/earn.cjs";
 // @ts-ignore
-import walletRoutes from "./server/routes/wallet.js";
+import walletRoutes from "./server/routes/wallet.cjs";
 // @ts-ignore
-import groupsRoutes from "./server/routes/groups.js";
+import groupsRoutes from "./server/routes/groups.cjs";
 // @ts-ignore
-import premiumRoutes from "./server/routes/premium.js";
+import premiumRoutes from "./server/routes/premium.cjs";
 // @ts-ignore
-import marketplaceRoutes from "./server/routes/marketplace.js";
+import marketplaceRoutes from "./server/routes/marketplace.cjs";
 // @ts-ignore
-import analyticsRoutes from "./server/routes/analytics.js";
+import analyticsRoutes from "./server/routes/analytics.cjs";
 // @ts-ignore
-import settingsRoutes from "./server/routes/settings.js";
+import settingsRoutes from "./server/routes/settings.cjs";
 // @ts-ignore
-import botgenRoutes from "./server/routes/botgen.js";
+import botgenRoutes from "./server/routes/botgen.cjs";
 // @ts-ignore
-import roomchatModule from "./server/routes/roomchat.js";
+import roomchatModule from "./server/routes/roomchat.cjs";
 // @ts-ignore
-import messagesRoutes from "./server/routes/messages.js";
+import messagesRoutes from "./server/routes/messages.cjs";
 // @ts-ignore
-import pushRoutes from "./server/routes/push.js";
+import pushRoutes from "./server/routes/push.cjs";
 
 const { router: roomchatRoutes } = roomchatModule as any;
 
