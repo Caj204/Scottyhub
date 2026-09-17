@@ -1,23 +1,19 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import {
   Lock,
   Menu,
   MessageSquare,
   Scan,
-  Settings,
   Sparkles,
-  Sun,
-  Bell,
   LayoutGrid,
   Heart,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import welcomeLogo from '../assets/images/scottyhub_welcome_logo.jpg';
 
 import { AuthGate } from './AuthGate';
 import { BiometricModal } from './BiometricModal';
 import { CodeViewerModal } from './CodeViewerModal';
-import { OfflineBar } from './OfflineBar';
 import { PushNotificationToast } from './PushNotificationToast';
 import { ScottyDrawer } from './ScottyDrawer';
 import { ToolModals } from './ToolModals';
@@ -35,14 +31,12 @@ export const MobileDeviceFrame: React.FC = () => {
     setActiveTab,
     isLocked,
     openBiometricAuth,
-    unreadCount,
     toggleDrawer,
     setActiveToolModal,
-    toggleTheme,
     isAuthenticated,
   } = useApp();
 
-  const logoPath = '/src/assets/images/scotthub_logo_1786462155195.jpg';
+
 
   const renderActiveTab = () => {
     switch (activeTab) {
@@ -69,74 +63,6 @@ export const MobileDeviceFrame: React.FC = () => {
 
       {/* Site Wrapper (no device bezel) */}
       <div className="relative min-h-screen w-full bg-slate-950 flex flex-col">
-        {/* ScottyHub Main Header Bar */}
-        <div className="sticky top-0 z-30 px-4 sm:px-8 py-3 bg-slate-950/90 backdrop-blur-xl border-b border-white/10 flex items-center justify-between text-white">
-          {/* Left: Hamburger Menu Icon (disabled until logged in) */}
-          <button
-            onClick={isAuthenticated ? toggleDrawer : undefined}
-            disabled={!isAuthenticated}
-            aria-label="Open Navigation Menu"
-            className="p-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/10 text-slate-200 transition active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-
-          {/* Center Title: DASHBOARD */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-sm font-black uppercase tracking-wider text-cyan-400">
-              DASHBOARD
-            </span>
-          </div>
-
-          {/* Right Action Icons (disabled until logged in) */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Theme"
-              className="p-1.5 text-slate-300 hover:text-white transition"
-            >
-              <Sun className="w-4 h-4 text-amber-400" />
-            </button>
-
-            <button
-              onClick={isAuthenticated ? () => setActiveToolModal('ai-chat') : undefined}
-              disabled={!isAuthenticated}
-              aria-label="Open ScottyAI Chat"
-              className="p-1.5 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:pointer-events-none"
-            >
-              <MessageSquare className="w-4 h-4 text-cyan-400" />
-            </button>
-
-            <button
-              onClick={isAuthenticated ? () => setActiveToolModal('notifications-list') : undefined}
-              disabled={!isAuthenticated}
-              aria-label="View Notifications"
-              className="relative p-1.5 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:pointer-events-none"
-            >
-              <Bell className="w-4 h-4 text-rose-400" />
-              {isAuthenticated && unreadCount > 0 && (
-                <span className="absolute top-0 right-0 w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-              )}
-            </button>
-
-            {/* User Profile Badge: "C Cajo" (hidden until logged in) */}
-            {isAuthenticated && (
-              <button
-                onClick={() => setActiveTab('settings')}
-                className="flex items-center gap-1 pl-1 pr-2 py-0.5 rounded-full bg-blue-600/20 border border-blue-500/40 text-blue-300 text-xs font-bold"
-              >
-                <div className="w-4 h-4 rounded-full bg-blue-600 text-white text-[9px] flex items-center justify-center font-black">
-                  C
-                </div>
-                <span className="text-[10px]">Cajo</span>
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Offline & Sync Bar */}
-        <OfflineBar />
-
         {/* In-App Push Notification Banner Overlay */}
         <PushNotificationToast />
 
@@ -147,10 +73,10 @@ export const MobileDeviceFrame: React.FC = () => {
             <div className="absolute inset-0 z-40 bg-slate-950/95 backdrop-blur-2xl flex flex-col items-center justify-center p-6 text-center text-white space-y-6">
               <div className="relative">
                 <img
-                  src={logoPath}
+                  src={welcomeLogo}
                   alt="ScottHub Logo"
                   referrerPolicy="no-referrer"
-                  className="w-20 h-20 rounded-3xl border-2 border-indigo-500/50 shadow-2xl shadow-indigo-500/30 object-cover"
+                  className="w-44 h-28 object-contain drop-shadow-2xl"
                 />
                 <div className="absolute -bottom-2 -right-2 p-2 bg-indigo-600 text-white rounded-2xl shadow-lg border border-indigo-400/40">
                   <Lock className="w-5 h-5 stroke-[2.5]" />

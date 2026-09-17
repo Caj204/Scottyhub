@@ -10,8 +10,7 @@
 import React, { useState } from 'react';
 import { Loader2, Lock, LogIn, Mail, ShieldCheck, User as UserIcon, KeyRound } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-
-const logoPath = '/src/assets/images/scotthub_logo_1786462155195.jpg';
+import welcomeLogo from '../assets/images/scottyhub_welcome_logo.jpg';
 
 type Mode = 'login' | 'register' | 'verify';
 
@@ -45,12 +44,12 @@ export const AuthGate: React.FC = () => {
         <div className="flex flex-col items-center text-center space-y-3">
           <div className="relative">
             <img
-              src={logoPath}
+              src={welcomeLogo}
               alt="ScottHub Logo"
               referrerPolicy="no-referrer"
-              className="w-16 h-16 rounded-3xl border-2 border-indigo-500/50 shadow-2xl shadow-indigo-500/30 object-cover"
+              className="w-44 h-28 object-contain drop-shadow-2xl"
             />
-            <div className="absolute -bottom-2 -right-2 p-1.5 bg-indigo-600 text-white rounded-xl shadow-lg border border-indigo-400/40">
+            <div className="absolute bottom-0 right-1 p-1.5 bg-indigo-600 text-white rounded-xl shadow-lg border border-indigo-400/40">
               <Lock className="w-4 h-4 stroke-[2.5]" />
             </div>
           </div>
